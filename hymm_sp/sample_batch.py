@@ -114,7 +114,7 @@ def main():
                 save_videos_grid(sample, out_path, fps=args.fps)
                 if args.audio_condition and audio_path is not None:
                     out_audio_path = f"{save_path}/{save_name}_audio.mp4"
-                    os.system(f"ffmpeg -i '{out_path}' -i '{audio_path}' -shortest '{out_audio_path}' -y -loglevel quiet; rm '{out_path}'")
+                    os.system(f"/usr/bin/ffmpeg -i '{out_path}' -i '{audio_path}' -shortest '{out_audio_path}' -c:v libx264 -crf 5 -preset medium -pix_fmt yuv420p -c:a aac -b:a 192k -y; rm '{out_path}'")
                     logger.info(f'Sample save to: {out_audio_path}')
                 else:
                     logger.info(f'Sample save to: {out_path}')
