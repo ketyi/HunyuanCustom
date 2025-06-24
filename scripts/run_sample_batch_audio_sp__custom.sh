@@ -9,11 +9,11 @@ modelname='Tencent_HunyuanCustom_Audio_720P'
 OUTPUT_BASEPATH=./results/${modelname}/${current_time}
 
 torchrun --nnodes=1 --nproc_per_node=8 --master_port 29605 hymm_sp/sample_batch.py \
-    --ref-image './assets/images/seg_man_01.png' \
-    --input-audio './assets/audios/milk_man.mp3' \
+    --ref-image 'dominik_2_crop_2.png' \
+    --input-audio 'crying_talk.wav' \
     --audio-strength 0.8 \
     --audio-condition \
-    --pos-prompt "Realistic, High-quality. In the study, a man sits at a table featuring a bottle of milk while delivering a product presentation." \
+    --pos-prompt "Realistic, High-quality. In the study, a man sits at a table featuring a bottle of whisky while delivering a product presentation." \
     --neg-prompt "Two people, two persons, aerial view, overexposed, low quality, deformation, a poor composition, bad hands, bad teeth, bad eyes, bad limbs, distortion, blurring, text, subtitles, static, picture, black border." \
     --ckpt ${checkpoint_path} \
     --seed 1026 \
