@@ -8,7 +8,7 @@ current_time=$(date "+%Y.%m.%d-%H.%M.%S")
 modelname='Tencent_HunyuanCustom_Audio_720P'
 OUTPUT_BASEPATH=./results/${modelname}/${current_time}
 
-torchrun --nnodes=1 --nproc_per_node=8 --master_port 29605 hymm_sp/sample_batch.py \
+time torchrun --nnodes=1 --nproc_per_node=8 --master_port 29605 hymm_sp/sample_batch.py \
     --ref-image 'dominik_2_crop_2.png' \
     --input-audio 'crying_talk.wav' \
     --audio-strength 0.8 \
@@ -18,7 +18,7 @@ torchrun --nnodes=1 --nproc_per_node=8 --master_port 29605 hymm_sp/sample_batch.
     --ckpt ${checkpoint_path} \
     --seed 1026 \
     --video-size 720 1280 \
-    --sample-n-frames 129 \
+    --sample-n-frames 193 \
     --cfg-scale 7.5 \
     --infer-steps 30 \
     --use-deepcache 1 \
